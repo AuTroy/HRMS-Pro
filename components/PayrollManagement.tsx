@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Employee, PayrollRecord } from '../types';
 import { CURRENCY } from '../constants';
-import { DollarSign, Printer, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 interface Props {
   employees: Employee[];
@@ -57,7 +57,6 @@ const PayrollManagement: React.FC<Props> = ({ employees }) => {
                 <th className="p-4 text-xs font-semibold text-gray-500 uppercase text-right">SSS (4.5%)</th>
                 <th className="p-4 text-xs font-semibold text-gray-500 uppercase text-right">PhilHealth (4%)</th>
                 <th className="p-4 text-xs font-semibold text-gray-500 uppercase text-right text-blue-600">Net Pay</th>
-                <th className="p-4 text-xs font-semibold text-gray-500 uppercase text-center">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -74,11 +73,6 @@ const PayrollManagement: React.FC<Props> = ({ employees }) => {
                     <td className="p-4 text-right text-red-500 font-mono text-xs">-{formatCurrency(payroll.deductions.sss)}</td>
                     <td className="p-4 text-right text-red-500 font-mono text-xs">-{formatCurrency(payroll.deductions.philhealth)}</td>
                     <td className="p-4 text-right font-bold text-green-700 font-mono">{formatCurrency(payroll.netSalary)}</td>
-                    <td className="p-4 text-center">
-                      <button className="text-blue-600 hover:text-blue-800 p-2 rounded hover:bg-blue-50 transition-colors" title="Print Slip">
-                        <Printer size={18} />
-                      </button>
-                    </td>
                   </tr>
                 );
               })}
